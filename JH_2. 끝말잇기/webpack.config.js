@@ -1,4 +1,5 @@
 const path = require('path');
+const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
   name: 'word-relay-setting',
@@ -23,13 +24,22 @@ module.exports = {
         //npm을 설치한 모듈을 넣어주면 된다.
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
-          plugins: ['@babel/plugin-proposal-class-properties'],
+          plugins: [
+            '@babel/plugin-proposal-class-properties',
+            'react-refresh/babel',
+          ],
         },
       },
     ],
   },
+  plugins: [new RefreshWebpackPlugin()],
   output: {
     path: path.join(__dirname, 'dist'), //C:\ONJ\React_Github\inflearn-zerocho-react-webgame\JH_lecture\dist
     filename: 'app.js',
+    publicPath: '/dist/',
   }, //출력
+  devServer: {
+    publicPath: '/dist/',
+    hot: true,
+  },
 };
