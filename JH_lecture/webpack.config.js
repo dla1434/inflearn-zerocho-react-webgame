@@ -29,7 +29,7 @@ module.exports = {
     ],
   },
   output: {
-    path: path.join(__dirname, 'dist'), //C:\ONJ\React_Github\inflearn-zerocho-react-webgame\lecture_jh\dist
+    path: path.join(__dirname, 'dist'), //C:\ONJ\React_Github\inflearn-zerocho-react-webgame\JH_lecture\dist
     filename: 'app.js',
   }, //출력
 };
