@@ -10,7 +10,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   entry: {
-    //client.jsx에서 WordRelay.jsx 임폴트해서 쓰고 있는데 이런경우는 자동으로 인식되므로 생략 가능
+    //client.jsx에서 NumberBaseball.jsx 임폴트해서 쓰고 있는데 이런경우는 자동으로 인식되므로 생략 가능
     app: ['./client.jsx'],
   }, //입력
   module: {
