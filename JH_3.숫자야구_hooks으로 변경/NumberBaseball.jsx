@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import Try from './Try';
 
 //숫자 네 개를 랜덤하게 뽑는 함수
@@ -14,7 +14,7 @@ function getNumbers() {
   return array;
 }
 
-const NumberBaseball = () => {
+const NumberBaseball = memo(() => {
   const [answer, setAnswer] = useState(getNumbers());
   const [value, setValue] = useState('');
   const [result, setResult] = useState('');
@@ -84,7 +84,7 @@ const NumberBaseball = () => {
       </ul>
     </>
   );
-};
+});
 
 // class NumberBaseball extends Component {
 //   getNumbers = () => {

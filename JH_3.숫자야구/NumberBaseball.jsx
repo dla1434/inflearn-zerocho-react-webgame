@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import Try from './Try';
 
 //숫자 네 개를 랜덤하게 뽑는 함수
@@ -61,6 +61,7 @@ class NumberBaseball extends Component {
         answer: getNumbers(),
         tries: [],
       });
+      this.inputRef.current.focus();
     } else {
       //답인 틀린 경우 처리
       const answerArray = value.split('').map((v) => parseInt(v));
@@ -76,6 +77,7 @@ class NumberBaseball extends Component {
           answer: getNumbers(),
           tries: [],
         });
+        this.inputRef.current.focus();
       } else {
         for (let i = 0; i < 4; i += 1) {
           if (answerArray[i] === answer[i]) {
@@ -95,6 +97,7 @@ class NumberBaseball extends Component {
               value: '',
             };
           });
+          this.inputRef.current.focus();
         }
       }
     }
@@ -107,6 +110,8 @@ class NumberBaseball extends Component {
     });
   };
 
+  inputRef = createRef(); //this.inputRef
+
   render() {
     const { result, value, tries } = this.state;
 
@@ -116,6 +121,7 @@ class NumberBaseball extends Component {
         <h1>{result}</h1>
         <form onSubmit={this.onSubmitForm}>
           <input
+            ref={this.inputRef}
             maxLength={4}
             // value={this.state.value}
             value={value}
